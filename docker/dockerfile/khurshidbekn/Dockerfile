@@ -3,4 +3,3 @@ WORKDIR /app
 COPY hello.sh /app
 RUN chmod +x hello.sh
 CMD  hello.sh
-MAINTAINER Khamidov Ruzimboy
