@@ -1,5 +1,5 @@
 FROM ubuntu:22.04
-WORKDIR /hello
-COPY hello.sh .
+WORKDIR /app
+COPY . .
 RUN chmod +x hello.sh
 CMD  ["./hello.sh"]
