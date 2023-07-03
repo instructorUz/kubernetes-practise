@@ -1,0 +1,23 @@
+version: '3'
+services:
+  db:
+    image: mariadb:10.6.4-focal
+    environment:
+      - MYSQL_ROOT_PASSWORD=somewordpress
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=wordpress
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+       - db_data:/var/lib/mysql
+  wordpress:
+    image: wordpress:latest
+    environment:
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_USER=wordpress
+      - WORDPRESS_DB_PASSWORD=wordpress
+      - WORDPRESS_DB_NAME=wordpress
+    ports:
+      - 90:80
+volumes:
+  db_data:
